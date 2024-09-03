@@ -2,8 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .custom-input-style {
-    border: 1px solid #C4C4C4;
-    border-radius: 0.25rem;
+  border: 1px solid #c4c4c4;
+  border-radius: 0.25rem;
 }

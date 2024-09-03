@@ -60,7 +60,7 @@ export default function NavLinks() {
             key={link.name}
             href={link.href}
             className={clsx(
-              "font-sans flex h-[58px] w-full items-center justify-start gap-2 p-3 py-1 text-sm font-medium hover:bg-gray-300 hover:text-black md:flex-none md:justify-start md:p-2 md:px-3 group",
+              "font-sans w-full flex h-16 items-center justify-start gap-2 py-1 max-md:px-4 text-[0.8rem] font-medium hover:bg-gray-300 hover:text-black  md:justify-start md:p-2 md:px-3 group",
               { "bg-[#dc3545] text-[#fff]": pathname === link.href }
             )}
           >

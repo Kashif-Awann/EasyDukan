@@ -10,6 +10,15 @@
     "emulators": "firebase emulators:start"
   },
   "dependencies": {
+    "@emotion/cache": "^11.13.1",
+    "@emotion/react": "^11.13.3",
+    "@emotion/server": "^11.11.0",
+    "@emotion/styled": "^11.13.0",
+    "@heroicons/react": "^2.1.5",
+    "@mui/icons-material": "^5.16.7",
+    "@mui/material": "^5.16.7",
+    "@mui/material-nextjs": "^5.16.6",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.18",
     "bootstrap": "^5.3.3",
     "chart.js": "^4.4.3",
     "clsx": "^2.1.1",
@@ -22,7 +31,8 @@
     "react-firebase-hooks": "^5.1.1",
     "react-toastify": "^10.0.5",
     "saas": "^1.0.0",
-    "sass": "^1.77.6"
+    "sass": "^1.77.6",
+    "styled-components": "^6.1.12"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",

@@ -8,10 +8,10 @@ interface DashboardHeaderProps {
 
 function DashboardHeader({ toggleSideNav }: DashboardHeaderProps) {
   return (
-    <div className="p-1 pr-3 h-11 flex justify-center items-center overflow-hidden">
+    <div className="p-1 pr-3 h-12 flex justify-center items-center">
       <button
         onClick={toggleSideNav}
-        className="px-4 hover:border rounded border-gray-700"
+        className="px-2 hover:border rounded border-gray-700 hover:bg-gray-50"
       >
         <Hamburg />
       </button>

@@ -25,47 +25,50 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const userId = auth.currentUser?.uid;
   console.log(userId);
 
-  const toggleSideNav = () => {
+  function toggleSideNav() {
     setShowSideNav(!showSideNav);
-  };
+  }
 
-  if (!userId) {
+  if (userId) {
     return (
-      <>
+      <div className="max-w-[1420px] mx-auto">
         <div className="h-screen flex flex-col bg-white">
           <div>
             <DashboardHeader toggleSideNav={toggleSideNav} />
           </div>
-          <div className="flex md:flex-row h-full border-t-2 border-indigo-100">
+          <div className="flex flex-grow overflow-hidden">
             <div
-              className={`w-72 flex-col items-center justify-center md:items-start ${
-                showSideNav ? "block" : "hidden"
-              } ${showSideNav ? "md:hidden" : "md:block"}`}
+              className={`w-72 flex-col items-center justify-center md:items-start ease-in-out duration-300 max-md:duration-100 
+                ${
+                  showSideNav
+                    ? "-translate-x-full opacity-100 md:w-0 max-md:w-0 overflow-hidden"
+                    : ""
+                }
+              `}
             >
               <SideNav />
             </div>
-            <div className="border-l-2 border-indigo-100 flex-grow p-2 md:p-4">
-              {children}
-            </div>
+            <div className="w-full pl-2 md:pl-5 overflow-auto">{children}</div>
           </div>
         </div>
-      </>
+      </div>
     );
   } else {
     return (
-      <>
-        <div className="h-screen flex flex-col justify-center items-center">
-          <h1 className="text-xl">Please Login In</h1>
-          <div>
-            <button
-              onClick={() => router.push("/sign-in")}
-              className="p-3 rounded mt-2 text-white bg-orange-400 border-none hover:bg-orange-600"
-            >
-              Sign In
-            </button>
-          </div>
+      <div className="min-h-screen flex flex-col justify-center items-center">
+        <h1 className="text-xl">Please Login In</h1>
+        <div>
+          <button
+            onClick={() => router.push("/sign-in")}
+            className="p-3 rounded mt-2 text-white bg-orange-400 border-none hover:bg-orange-600"
+          >
+            Sign In
+          </button>
         </div>
-      </>
+      </div>
     );
   }
 }
+
+//    ${showSideNav ? "block" : "hidden"
+// } ${showSideNav ? "md:hidden" : "md:block"}

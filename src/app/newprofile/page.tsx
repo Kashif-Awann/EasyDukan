@@ -9,6 +9,8 @@ import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import Profile from "../../../public/profile.png";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import Box from "@mui/material/Box";
+import LinearProgress from "@mui/material/LinearProgress";
 
 const EditProfileForm = () => {
   // const [firstName, setFirstName] = useState('');
@@ -172,7 +174,7 @@ const EditProfileForm = () => {
           Edit Profile
         </h2>
       </div>
-      <div className="mx-auto h-[142px] w-[142px] border border-[sky-100 rounded-full mt-[-90px] z-10 bg-gray-100 flex items-center justify-center overflow-hidden">
+      <div className="mx-auto h-[142px] w-[142px] border border-sky-100 rounded-full mt-[-90px] z-10 bg-gray-100 flex items-center justify-center overflow-hidden">
         <div style={{ width: "142px", height: "142px", position: "relative" }}>
           <Image
             src={imageUrl ? imageUrl : Profile} //URL.createObjectURL(imageUrl)
@@ -184,7 +186,16 @@ const EditProfileForm = () => {
           />
         </div>
       </div>
-      <div className="max-w-lg mx-auto rounded px-8 pt-6 pb-8 mb-4">
+      <div className="flex w-full justify-center p-2">
+        {uploadProgress ? (
+          <Box sx={{ width: "20%" }}>
+            <LinearProgress variant="determinate" value={uploadProgress} />
+          </Box>
+        ) : (
+          ""
+        )}
+      </div>
+      <div className="mx-auto rounded px-8 pt-6 pb-8 mb-4">
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="flex flex-wrap -mx-3 mb-6">
             <div className="w-full px-3">

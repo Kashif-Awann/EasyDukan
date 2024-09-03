@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
 import { Inter, Open_Sans } from "next/font/google";
 import "./globals.css";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 
 const inter = Inter({ subsets: ["latin"] });
-export const openSans = Open_Sans({ subsets: ["latin"], weight: ["300", "500", "700"] ,display: 'swap',});
+export const openSans = Open_Sans({
+  subsets: ["latin"],
+  weight: ["300", "500", "700"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,8 +23,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={openSans.className}>
+        {/* <AppRouterCacheProvider> */}
         {children}
-        </body>
+        {/* </AppRouterCacheProvider> */}
+      </body>
     </html>
   );
 }

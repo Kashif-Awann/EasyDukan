@@ -1,11 +1,10 @@
-import Header from './components/Header'
-
+import Header from "./components/Header";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="min-h-screen">
       <Header />
-      <h1>Main Page</h1>
+      <div className="flex items-center justify-center">Main Page</div>
     </main>
   );
 }
