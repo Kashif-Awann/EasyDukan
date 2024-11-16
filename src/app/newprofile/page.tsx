@@ -104,11 +104,13 @@ const EditProfileForm = () => {
         async () => {
           const url = await getDownloadURL(uploadTask.snapshot.ref);
           setImageUrl(url);
-          console.log("Image URL:", url);
+          setUploadProgress(0);
+          // console.log("Image URL:", url);
         }
       );
     } catch (error) {
       console.error("Error uploading image:", error);
+      setUploadProgress(0);
     }
   };
 

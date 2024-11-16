@@ -21,8 +21,9 @@ const SignUp = () => {
     e.preventDefault();
     try {
       const response = await CreateUserWithEmailAndPassword(email, password);
+      console.log("Creating User");
       const user = response?.user;
-      console.log("User", user);
+      // console.log("User", user);
       if (user) {
         await setDoc(doc(db, "Users", user.uid), {
           email: user.email,

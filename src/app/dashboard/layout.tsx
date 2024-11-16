@@ -23,7 +23,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
 
   const userId = auth.currentUser?.uid;
-  console.log(userId);
+  // console.log(userId);
 
   function toggleSideNav() {
     setShowSideNav(!showSideNav);
@@ -31,7 +31,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   if (userId) {
     return (
-      <div className="max-w-[1420px] mx-auto">
+      <div className="max-w-[1600px] mx-auto">
         <div className="h-screen flex flex-col bg-white">
           <div>
             <DashboardHeader toggleSideNav={toggleSideNav} />
