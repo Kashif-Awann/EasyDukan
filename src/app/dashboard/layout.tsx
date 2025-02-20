@@ -1,20 +1,8 @@
-// import SideNav from "../ui/dashboard/sidenav";
-
-// export default function Layout({ children }: { children: React.ReactNode }) {
-//   return (
-//     <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
-//       <div className="w-full flex-none md:w-64">
-//         <SideNav />
-//       </div>
-//       <div className="flex-grow p-6 md:overflow-y-auto md:p-12">{children}</div>
-//     </div>
-//   );
-// }
 "use client";
 
 import DashboardHeader from "../ui/dashboard/dashboardheader";
 import SideNav from "../ui/dashboard/sidenav";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import auth from "../firebase/config";
 
@@ -29,26 +17,41 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     setShowSideNav(!showSideNav);
   }
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setShowSideNav(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Run on mount
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   if (userId) {
     return (
-      <div className="max-w-[1600px] mx-auto">
+      <div className="max-w-[1600px] mx-auto relative">
         <div className="h-screen flex flex-col bg-white">
           <div>
             <DashboardHeader toggleSideNav={toggleSideNav} />
           </div>
           <div className="flex flex-grow overflow-hidden">
             <div
-              className={`w-72 flex-col items-center justify-center md:items-start ease-in-out duration-300 max-md:duration-100 
+              className={`max-md:fixed left-0 top-10 h-full w-64 z-50 flex-col items-center justify-center md:items-start ease-in-out duration-300 overflow-y-auto 
                 ${
                   showSideNav
-                    ? "-translate-x-full opacity-100 md:w-0 max-md:w-0 overflow-hidden"
+                    ? "-translate-x-full opacity-100 overflow-hidden"
                     : ""
                 }
               `}
             >
               <SideNav />
             </div>
-            <div className="w-full pl-2 md:pl-5 overflow-auto">{children}</div>
+            <div className="w-full px-2 md:px-5 overflow-y-auto">
+              {children}
+            </div>
           </div>
         </div>
       </div>

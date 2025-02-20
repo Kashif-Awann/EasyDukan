@@ -41,9 +41,9 @@ const SignIn = () => {
 
   return (
     <div className="min-h-screen flex max-sm:items-start items-center justify-center overflow-hidden">
-      <div className="border border-[#FF8D83] max-sm:border-0 bg-custom-bg1 bg-no-repeat bg-cover md:bg-[center_top_-5rem] bg-[center_top_-2rem] p-8 pb-1 md:rounded-3xl max-sm:rounded-none w-full max-w-lg max-sm:max-w-xl">
-        <div className="pt-[240px] md:pt-48">
-          <h2 className="text-3xl font-bold mb-10 md:mb-5 text-gray-800 font-source-sans">
+      <div className="border border-[#FF8D83] max-sm:border-0 bg-custom-bg1 bg-no-repeat bg-contain md:bg-cover md:bg-[center_top_-7em] bg-[center_top_-1.5rem] px-5 md:py-2 pb-1 md:rounded-3xl max-sm:rounded-none w-full max-w-md max-sm:max-w-xl">
+        <div className="pt-[210px] md:pt-[8.5rem]">
+          <h2 className="text-4xl md:text-2xl font-bold mb-10 md:mb-5 text-gray-800 font-source-sans">
             Sign In
             <div className="w-20 md:w-[84px] h-1 border-b-4 border-[#FF8D83] mt-1 ml-1.5 rounded-2xl"></div>
           </h2>
@@ -63,7 +63,7 @@ const SignIn = () => {
                   placeholder="Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="appearance-none custom-input-style block w-full text-gray-700 py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  className="appearance-none custom-input-style block w-full text-gray-700 py-2 px-2 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   required
                 />
               </div>
@@ -83,7 +83,7 @@ const SignIn = () => {
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="appearance-none block w-full text-gray-700 custom-input-style py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  className="appearance-none block w-full text-gray-700 custom-input-style py-2 px-2 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   required
                 />
               </div>

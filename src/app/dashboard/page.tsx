@@ -12,7 +12,7 @@ export default function DashboardPage() {
   const [data, loading] = usersData();
 
   return (
-    <div className="flex max-sm:min-w-[27rem] w-full flex-col md:col-span-4">
+    <div className="flex  w-full flex-col md:col-span-4">
       <h2 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
         Latest Invoices
       </h2>

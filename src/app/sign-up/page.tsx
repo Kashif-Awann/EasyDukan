@@ -17,7 +17,7 @@ const SignUp = () => {
   const [CreateUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
       const response = await CreateUserWithEmailAndPassword(email, password);
@@ -64,9 +64,9 @@ const SignUp = () => {
 
   return (
     <div className="min-h-screen flex max-sm:items-start items-center justify-center overflow-hidden">
-      <div className="border border-[#FF8D83] max-sm:border-0 bg-custom-bg1 bg-no-repeat bg-cover md:bg-[center_top_-6em]  bg-[center_top_-1.5rem] p-8 pb-1 md:rounded-3xl  max-sm:rounded-none w-full max-w-lg max-sm:max-w-xl">
-        <div className="pt-[310px] md:pt-56">
-          <h2 className="text-4xl md:text-3xl font-bold mb-10 md:mb-5 text-gray-800 font-source-sans">
+      <div className="border border-[#FF8D83] max-sm:border-0 bg-custom-bg1 bg-no-repeat bg-contain md:bg-cover  md:bg-[center_top_-7em] bg-[center_top_-1.5rem] px-5 md:py-2 pb-1 md:rounded-3xl  max-sm:rounded-none w-full max-w-md  max-sm:max-w-xl">
+        <div className="pt-[230px] md:pt-[8.5rem]">
+          <h2 className="text-4xl md:text-2xl font-bold mb-10 md:mb-5 text-gray-800 font-source-sans">
             Sign Up
             <div className="w-20 md:w-[84px] h-1 border-b-4 border-[#FF8D83] mt-1 ml-1.5 rounded-2xl"></div>
           </h2>
@@ -86,7 +86,7 @@ const SignUp = () => {
                   placeholder="Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="appearance-none custom-input-style block w-full text-gray-700 py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  className="appearance-none custom-input-style block w-full text-gray-700 py-2 px-2 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   required
                 />
               </div>
@@ -106,7 +106,7 @@ const SignUp = () => {
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="appearance-none block w-full text-gray-700 custom-input-style py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  className="appearance-none block w-full text-gray-700 custom-input-style py-2 px-2 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   required
                 />
               </div>
@@ -114,7 +114,7 @@ const SignUp = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-[#FF8D83] text-[#F8F8FF] py-3 px-4 rounded-xl hover:bg-[#ec6a63] focus:outline-none focus:ring-2 focus:ring-[#e84940] focus:ring-opacity-50 transition duration-150"
+              className="w-full bg-[#FF8D83] text-[#F8F8FF] py-1 px-4 rounded-xl hover:bg-[#ec6a63] focus:outline-none focus:ring-2 focus:ring-[#e84940] focus:ring-opacity-50 transition duration-150"
             >
               {loading ? (
                 "Processing..."
@@ -123,23 +123,25 @@ const SignUp = () => {
                   <div>
                     <LocalPostOfficeSharpIcon />
                   </div>
-                  <div className="pl-3 font-semibold">Sign Up</div>
+                  <div className="pl-3 text-sm font-semibold">Sign Up</div>
                 </div>
               )}
             </button>
           </form>
           <div className="text-center">
-            <p className="my-2 text-gray-700">or</p>
+            <p className="my-[2px] text-sm text-gray-700">or</p>
             <button
               onClick={handleGoogleSignIn}
               disabled={loading}
-              className="w-full bg-blue-400 text-[#F8F8FF] py-3 px-4 rounded-xl hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-800 focus:ring-opacity-50 transition duration-150"
+              className="w-full bg-blue-400 text-[#F8F8FF] py-1 px-4 rounded-xl hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-800 focus:ring-opacity-50 transition duration-150"
             >
               <div className="flex items-center justify-center">
                 <div>
                   <GoogleIcon />
                 </div>
-                <div className="pl-3 font-semibold">Sign In with Google</div>
+                <div className="pl-3 text-sm font-semibold">
+                  Sign Up with Google
+                </div>
               </div>
             </button>
           </div>

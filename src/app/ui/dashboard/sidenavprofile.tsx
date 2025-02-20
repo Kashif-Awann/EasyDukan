@@ -16,15 +16,15 @@ export default function SideNavProfile() {
       className="bg-gray-100 flex gap-2 h-16 w-full items-center justify-start border-b-2  py-[20px] pl-4 mb-2 border-sky-200 hover:border hover:border-sky-400"
       href="/dashboard/profile"
     >
-      <div className="bg-white rounded-full h-12 w-12 relative overflow-hidden">
+      <div className="w-12 h-12 relative">
         {image ? (
           <Avatar alt={firstName} src={image} />
         ) : (
           <Image
             src={UserProfile}
             alt="Profile"
-            width={142}
-            height={142}
+            height={48}
+            width={48}
             priority
             className="rounded-full"
           />
